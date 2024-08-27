@@ -122,9 +122,7 @@ public class Estudiante {
                 + apellidos + ", " + correo + ", " + telefono + ", " + edad + ", " + nota1
                 + ", " + nota2 + ", " + nota3 + ", " + nota4 + ", " + nota5+" su definitiva es de: "+calcularDefinitiva(nota1, nota2, nota3, nota4, nota5);
     }
-    public static void mostrarMensaje (String mensaje){
-        System.out.println(mensaje);
-    }
+    
 
     public double calcularDefinitiva (double nota1, double nota2, double nota3, double nota4, double nota5){
         double definitiva= (nota1+nota2+nota3+nota4+nota5)/5;
