@@ -25,6 +25,14 @@ public class Estudiante {
         this.nota3=nota3;
         this.nota4=nota4;
         this.nota5=nota5;
+        assert !numeroIdentificacion.isBlank();
+        assert !nombres.isBlank();
+        assert !apellidos.isBlank();
+        assert !correo.isBlank();
+        assert !telefono.isBlank();
+        assert edad>0;
+        assert correo.contains("@");
+
 
     }
 
