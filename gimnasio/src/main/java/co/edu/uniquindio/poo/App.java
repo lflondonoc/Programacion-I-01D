@@ -9,14 +9,15 @@ import java.util.LinkedList;
  */
 public class App {
     public static void main(String[] args) {
-        // Se crea el gimnasio
+
+        // creación de gimnasio
         Gimnasio gimnasio = new Gimnasio("Bodytech", LocalDate.now());
 
-        // Se crean los miembros
+        //creación entrenador
         Miembro miembro1 = new Miembro("Carlos", 20, "Masculino", "12345", Membresia.MENSUAL);
         Miembro miembro2 = new Miembro("Mario", 17, "Masculino", "1235", Membresia.ANUAL);
 
-        // Se crean los entrenadores
+        //creación miembros
         Entrenador entrenador = new Entrenador("Jorge", "Pesas", "1234", "jorge@gmail.com");
 
         // Se agregan los miembros al gimnasio
@@ -33,18 +34,31 @@ public class App {
 
         // Devolver lista con nombre invertidos
         Gimnasio.mostrarMensaje("Lista Nombres Invertidos: ");
-        gimnasio.listaNombresInverso();
+        gimnasio.imprimirNombresInvertidos();
 
-        // Obtener los miembros menores de edad
-        LinkedList<Miembro> menores = gimnasio.miembrosMenoresEdad();
-
-        // Imprimir los miembros menores de edad
-        System.out.println("Miembros menores de edad: ");
-        for (Miembro miembro : menores) {
-            System.out.println(miembro);
+        // Mostrar los miembros que son menores a 18 años
+        Gimnasio.mostrarMensaje("Mostrar menores de 18: ");
+        LinkedList<Miembro> menores= gimnasio.obtenerContactosMenoresEdad();
+        for (Miembro miembro: menores){
+            Gimnasio.mostrarMensaje(miembro.toString());
         }
 
-        Gimnasio.mostrarMensaje(gimnasio.toString());
+
+        // Calcular promedio de edades
+        double promedio = gimnasio.calcularPromedioEdades();
+        Gimnasio.mostrarMensaje("El promedio de las edades es: "+promedio);
+
+        // Obtener la edad que más se repite
+        int edadMasRepetida = gimnasio.obtenerEdadMasRepetida();
+        Gimnasio.mostrarMensaje("La edad que más se repite es: " + edadMasRepetida);
+
+
+        // Eliminar miembros con al menos 3 vocales en el nombre
+        gimnasio.eliminarMiembrosCon3Vocales();
+            // Mostrar los miembros restantes
+            Gimnasio.mostrarMensaje("Miembros restantes después de eliminar los nombres con 3 o más vocales:");
+            Gimnasio.mostrarMensaje(gimnasio.toString());
+
 
     }
 }

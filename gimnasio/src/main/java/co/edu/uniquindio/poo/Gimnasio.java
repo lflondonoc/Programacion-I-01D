@@ -9,23 +9,11 @@ public class Gimnasio {
     private LinkedList<Miembro> miembros;
     private LinkedList<Entrenador> entrenadores;
 
-    public Gimnasio(String nombre, LocalDate fechaInscripcion) {
-        this.nombre = nombre;
-        this.fechaInscripcion= fechaInscripcion;
-        miembros = new LinkedList<>();
+    public Gimnasio(String nombre, LocalDate fechaInscripcion){
+        this.nombre=nombre;
+        this.fechaInscripcion=fechaInscripcion;
+        miembros= new LinkedList<>();
         entrenadores = new LinkedList<>();
-    }
-
-    public void agregarMiembro(Miembro miembro) {
-        miembros.add(miembro);
-    }
-
-    public void agregarEntrenador(Entrenador entrenador) {
-        entrenadores.add(entrenador);
-    }
-
-    public static void mostrarMensaje(String mensaje) {
-        System.out.println(mensaje);
     }
 
     public String getNombre() {
@@ -48,10 +36,6 @@ public class Gimnasio {
         return miembros;
     }
 
-    public void setMiembros(LinkedList<Miembro> miembros) {
-        this.miembros = miembros;
-    }
-
     public LinkedList<Entrenador> getEntrenadores() {
         return entrenadores;
     }
@@ -60,49 +44,116 @@ public class Gimnasio {
         this.entrenadores = entrenadores;
     }
 
+    public void setMiembros(LinkedList<Miembro> miembros) {
+        this.miembros = miembros;
+    }
+
     @Override
     public String toString() {
-        return "Gimnasio [nombre=" + nombre + ", fechaInscripcion=" + fechaInscripcion + ", miembros=" + miembros
-                + ", entrenadores=" + entrenadores + "]";
+        return "El gimnasio tiene como nombre " + nombre + ", se inicia la fecha de Inscripcion el " + fechaInscripcion + ", y los miembros son: \n" + miembros+" los entrenadores son: \n"+entrenadores;
     }
 
+    public static void mostrarMensaje(String mensaje){
+        System.out.println(mensaje);
+    }
     
-    // --------------------------------------------------------------
-    // Pilas metodos nuevos del taller
-
-    /**
-     * Metodo que muestra los nombres de los miembros de la lista en orden inverso
-     */
-    public void listaNombresInverso() {
+    // nombres invertidos
+    public void imprimirNombresInvertidos() {
         for (int i = miembros.size() - 1; i >= 0; i--) {
             Miembro miembro = miembros.get(i);
-            mostrarMensaje(miembro.getNombre());
+            Gimnasio.mostrarMensaje(miembro.getNombre());
         }
     }
-
-    /**
-     * Metodo que crea una lista de miembros que son menores de 18 años.
-     * 
-     * @return Una lista de objetos cuya edad es menor de 18 años.
-     */
-    public LinkedList<Miembro> miembrosMenoresEdad() {
-        LinkedList<Miembro> menores = new LinkedList<>();
+   
+    // Obtener edades <18
+    public LinkedList<Miembro> obtenerContactosMenoresEdad() {
+        LinkedList<Miembro> menoresEdad = new LinkedList<>();
         for (Miembro miembro : miembros) {
             if (miembro.getEdad() < 18) {
-                menores.add(miembro);
+                menoresEdad.add(miembro);
             }
         }
-        return menores;
+        return menoresEdad;
     }
-    // --------------------------------------------------------------
+    //promedio de edades
+    public double calcularPromedioEdades() {
+        int sumaEdades = 0;
+        int numeroMiembros = miembros.size();
+    
+        // Calcular la suma de todas las edades
+        for (Miembro miembro : miembros) {
+            sumaEdades += miembro.getEdad();
+        }
+        
+        // Calcular el promedio de edades
+        double promedioEdades = 0;
+        if (numeroMiembros > 0) {
+            promedioEdades = sumaEdades / numeroMiembros;
+        }
+    
+        return promedioEdades;
+    }
 
+    
+    // Eliminar miembros que los nombres tengan 3 vocales
+    public void eliminarMiembrosCon3Vocales() {
+        for (int i = 0; i < miembros.size(); i++) {
+            Miembro miembro = miembros.get(i);
+            String nombre = miembro.getNombre();
 
+            if (contarVocales(nombre) >= 3) {
+                miembros.remove(i);
+                i--; // Ajustar el índice después de la eliminación para evitar errores
+            }
+        }
+    }
+    public static boolean isVocal(char letra) {
+        return letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u';
+    }
 
-    // --------------------Completar los metodos---------------------
+    public static int contarVocales(String palabra) {
+        int cont = 0;
+        for (int i = 0; i < palabra.length(); i++) {
+            char letra = palabra.charAt(i);
+            if (isVocal(letra)) {
+                cont++;
+            }
+        }
+        return cont;
+    }
 
     
 
-    // --------------------Completar---------------------------------
+    // Obtener edad mas común
+    public int obtenerEdadMasRepetida() {
+        int edadMasRepetida = miembros.get(0).getEdad();
+        int maxFrecuencia = 0;
 
+        for (Miembro miembro1 : miembros) {
+            int edad = miembro1.getEdad();
+            int frecuencia = 0;
+
+            for (Miembro miembro2 : miembros) {
+                if (miembro2.getEdad() == edad) {
+                    frecuencia++;
+                }
+            }
+
+            if (frecuencia > maxFrecuencia) {
+                maxFrecuencia = frecuencia;
+                edadMasRepetida = edad;
+            }
+        }
+
+        return edadMasRepetida;
+    }
+
+    public void agregarMiembro(Miembro miembro){
+        miembros.add(miembro);
+    }
+
+    public void agregarEntrenador(Entrenador entrenador){
+        entrenadores.add(entrenador);
+    }
 
 }
