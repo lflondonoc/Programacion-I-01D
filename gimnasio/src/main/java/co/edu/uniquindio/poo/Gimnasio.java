@@ -156,4 +156,63 @@ public class Gimnasio {
         entrenadores.add(entrenador);
     }
 
+    //------------Parcial 1---------------------
+    //Método que devuelva el nombre más largo entre todos los entrenadores
+    public String obtenerNombreEntrenadorMasLargo() {
+        String nombreMasLargo = entrenadores.get(0).getNombre();
+        for (Entrenador entrenador : entrenadores) {
+            if (entrenador.getNombre().length() > nombreMasLargo.length()) {
+                nombreMasLargo = entrenador.getNombre();
+            }
+        }
+        return nombreMasLargo;
+    }
+
+    // Método que imprime los entrenadores cuya suma de teléfono es igual a 30
+    public LinkedList<Entrenador> agregarEntrenadorConSumaTelefono30() {
+        LinkedList<Entrenador> entrenadoresConSuma30 = new LinkedList<>();
+        
+        for (Entrenador entrenador : entrenadores) {
+            int telefono = entrenador.getTelefono();  // Obtiene el número de teléfono
+            int sumaDigitos = 0;
+            
+            // Suma los dígitos del número de teléfono usando un bucle for
+            for (int i = telefono; i > 0; i /= 10) {
+                sumaDigitos += i % 10;  // Obtiene el dígito menos significativo
+            }
+            
+            // Verifica si la suma de los dígitos es igual a 30
+            if (sumaDigitos == 30) {
+                entrenadoresConSuma30.add(entrenador);
+            }
+        }
+        return entrenadoresConSuma30;
+    }
+    //Método que agregue a una lista los nombres de los miembros que son palíndromos
+    public LinkedList<Miembro> agregarMiembrosPalindromos() {
+        LinkedList<Miembro> miembrosPalindromos = new LinkedList<>();
+        for (Miembro miembro : miembros) {
+            String nombre = miembro.getNombre();
+            int longitud = nombre.length();
+            boolean esPalindromo = false;
+    
+            // Verificar si el nombre es un palíndromo (sin normalización de minúsculas)
+            for (int i = 0; i < longitud / 2; i++) {
+                if (nombre.charAt(i) == nombre.charAt(longitud - i - 1)) {
+                    esPalindromo = true;
+                    break;
+                }
+            }
+    
+            if (esPalindromo) {
+                miembrosPalindromos.add(miembro); 
+            }
+        }
+        return miembrosPalindromos;
+    }
+
+
+    //------------Parcial 1---------------------
+
+
 }

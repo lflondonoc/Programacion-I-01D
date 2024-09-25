@@ -5,11 +5,11 @@ import java.util.LinkedList;
 public class Entrenador {
     private String nombre;
     private String especialidad;
-    private String telefono;
+    private int telefono;
     private String correo;
     private LinkedList<Miembro> miembros;
 
-    public Entrenador(String nombre, String especialidad, String telefono, String correo) {
+    public Entrenador(String nombre, String especialidad, int telefono, String correo) {
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.telefono = telefono;
@@ -38,11 +38,11 @@ public class Entrenador {
         this.especialidad = especialidad;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
