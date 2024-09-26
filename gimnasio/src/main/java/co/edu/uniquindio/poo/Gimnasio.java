@@ -194,12 +194,12 @@ public class Gimnasio {
         for (Miembro miembro : miembros) {
             String nombre = miembro.getNombre();
             int longitud = nombre.length();
-            boolean esPalindromo = false;
+            boolean esPalindromo = true;
     
             // Verificar si el nombre es un palíndromo (sin normalización de minúsculas)
             for (int i = 0; i < longitud / 2; i++) {
-                if (nombre.charAt(i) == nombre.charAt(longitud - i - 1)) {
-                    esPalindromo = true;
+                if (nombre.charAt(i) != nombre.charAt(longitud - i - 1)) {
+                    esPalindromo = false;
                     break;
                 }
             }
