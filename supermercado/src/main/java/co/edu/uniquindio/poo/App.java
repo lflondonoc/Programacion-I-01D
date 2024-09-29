@@ -7,8 +7,8 @@ public class App {
         Supermercado supermercado = new Supermercado("Laureles");
 
         // Crear cliente y empleado
-        Cliente cliente = new Cliente("Juan", "", "123", "", "","");
-        Trabajador empleado = new Trabajador("Pedro", "", "", "", "", "", "");
+        Cliente cliente = new Cliente("Juan", "", "", "");
+        Trabajador empleado = new Trabajador("Pedro", "", "", "","");
 
         // Crear productos
         Producto producto = new Producto("Pera", 800);

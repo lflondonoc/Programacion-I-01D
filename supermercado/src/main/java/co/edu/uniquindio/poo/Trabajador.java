@@ -3,9 +3,9 @@ package co.edu.uniquindio.poo;
 public class Trabajador extends Persona{
     private String horario;
 
-    public Trabajador(String nombre, String apellido, String cedula, String direccion, String email, String telefono,
+    public Trabajador(String nombre, String apellido, String cedula, String telefono,
             String horario) {
-        super(nombre, apellido, cedula, direccion, email, telefono);
+        super(nombre, apellido, cedula, telefono);
         this.horario = horario;
     }
 
@@ -19,8 +19,8 @@ public class Trabajador extends Persona{
 
     @Override
     public String toString() {
-        return "Trabajador [nombre=" + nombre + ", horario=" + horario + ", apellido=" + apellido + ", cedula=" + cedula
-                + ", direccion=" + direccion + ", email=" + email + ", telefono=" + telefono + "]";
+        return "Trabajador: " + nombre + ", horario=" + horario + ", apellido=" + apellido + ", cedula=" + cedula
+                + ", telefono=" + telefono + "]";
     }
 
     
