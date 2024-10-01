@@ -11,8 +11,8 @@ public class App {
         Trabajador empleado = new Trabajador("Pedro", "", "", "","");
 
         // Crear productos
-        Producto producto = new Producto("Pera", 800);
-        Producto producto2 = new Producto("Manzana", 1000);
+        Producto producto = new Producto("Pera", 800, 10);
+        Producto producto2 = new Producto("Manzana", 1000, 5);
 
         // Agregar cliente, empleado y productos al supermercado
         supermercado.agregarCliente(cliente);
@@ -25,9 +25,11 @@ public class App {
 
         // Crear un detalle de factura y agregarlo a la factura
         DetalleFactura detalleFactura = new DetalleFactura(2, producto); // 2 peras por 800 cada una
+        detalleFactura.calcularSubtotalStock();
         factura.agregarDetalleFactura(detalleFactura);
 
         DetalleFactura detalleFactura2 = new DetalleFactura(3, producto2); // 3 manzanas por 1000 cada una
+        detalleFactura2.calcularSubtotalStock();
         factura.agregarDetalleFactura(detalleFactura2);
 
         // Mostrar el mensaje del supermercado
@@ -36,12 +38,15 @@ public class App {
         // Calcular y mostrar el subtotal de los detalles
         double totalDetalle = detalleFactura.calcularSubtotal(producto);
         double totalDetalle2 = detalleFactura2.calcularSubtotal(producto2);
-        Supermercado.mostrarMensaje("El subtotal del primer detalle es: " + totalDetalle);
-        Supermercado.mostrarMensaje("El subtotal del segundo detalle es: " + totalDetalle2);
+        Supermercado.mostrarMensaje("\nEl subtotal del primer detalle es: " + totalDetalle);
+        Supermercado.mostrarMensaje("\nEl subtotal del segundo detalle es: " + totalDetalle2);
 
         // Calcular el total de la factura sumando todos los detalles
         double totalFactura = factura.calcularTotal();
-        Supermercado.mostrarMensaje("El total de la factura es: " + totalFactura);
-        Supermercado.mostrarMensaje(factura.toString());
+        Supermercado.mostrarMensaje("\nEl total de la factura es: " + totalFactura);
+        Supermercado.mostrarMensaje("\n"+factura.toString());
+
+        //Mostrar el stock del producto
+        Supermercado.mostrarMensaje("\nEl stock disponible del producto "+producto.getNombre()+ " es "+producto.getStock());
     }
 }

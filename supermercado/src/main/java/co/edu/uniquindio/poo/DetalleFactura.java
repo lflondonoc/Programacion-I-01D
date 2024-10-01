@@ -46,4 +46,12 @@ public class DetalleFactura {
         return cantidad * producto.getPrecioUnitario();
     }
 
+    public void calcularSubtotalStock(){
+        if (producto.reducirStockProducto(cantidad)){
+            this.subtotal= calcularSubtotal(producto);
+        }else{
+            Supermercado.mostrarMensaje("No hay suficiente stock para el producto "+producto.getNombre());
+            this.subtotal=0;
+        }
+    }
 }
