@@ -21,14 +21,9 @@ public class AppTest {
      * Rigorous Test :-)
      */
     @Test
-    public void ObtenerEmpleadosMenores18() {
-        LOG.info("Iniciado test ObtenerEmpleadosMenores18");
-        
-        Supermercado supermercado = new Supermercado("Laureles");
-        Cliente cliente = new Cliente("Juan", "", "", "");
-        Cliente cliente2 = new Cliente("Juan", "", "", "");
-
-
-        LOG.info("Finalizando test ObtenerEmpleadosMenores18");
+    public void shouldAnswerWithTrue() {
+        LOG.info("Iniciado test shouldAnswerWithTrue");
+        assertTrue(true);
+        LOG.info("Finalizando test shouldAnswerWithTrue");
     }
 }
