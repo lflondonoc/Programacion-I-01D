@@ -5,7 +5,7 @@ public class Cliente extends Persona implements ICliente{
     private String descuento;
     
     // Constructor
-    public Cliente(String nombre, String cedula, String correo, String telefono, String descuento){
+    public Cliente(String nombre, String cedula, String correo, String telefono){
         super(nombre, cedula, correo, telefono);
         this.descuento = DESCUENTO;
     }
