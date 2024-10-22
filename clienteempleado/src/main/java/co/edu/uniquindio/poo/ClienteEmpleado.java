@@ -2,8 +2,8 @@ package co.edu.uniquindio.poo;
 
 public class ClienteEmpleado extends Cliente implements IEmpleado, ICliente{
 
-    public ClienteEmpleado(String nombre, String cedula, String correo, String telefono, String descuento){
-        super(nombre, cedula, correo, telefono, descuento);
+    public ClienteEmpleado(String nombre, String cedula, String correo, String telefono){
+        super(nombre, cedula, correo, telefono);
     }
 
     @Override
