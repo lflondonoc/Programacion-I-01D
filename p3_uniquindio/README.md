@@ -1,4 +1,4 @@
-# p3_electrodomesticos
+# p3_uniquindio
 
 Descripciín basisca de su Proyecto de POO ...
 
@@ -37,5 +37,5 @@ Para generar el jar puede usar el comando:
 y para ejecutar el jar
 
 ```shell
- java -jar target/p3_electrodomesticos-1.0.jar
+ java -jar target/p3_uniquindio-1.0.jar
 ```
